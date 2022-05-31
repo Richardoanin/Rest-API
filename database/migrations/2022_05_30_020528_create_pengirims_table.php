@@ -14,7 +14,7 @@ class CreatePengirimsTable extends Migration
     public function up()
     {
         Schema::create('pengirims', function (Blueprint $table) {
-            $table->increments('id_pengirim');
+            $table->increments('id');
             $table->string('nama_pengirim');
             $table->string('kota_pengirim');
             $table->string('telp_pengirim');

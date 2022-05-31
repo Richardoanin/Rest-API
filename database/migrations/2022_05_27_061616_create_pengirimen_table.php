@@ -14,7 +14,15 @@ class CreatePengirimenTable extends Migration
     public function up()
     {
         Schema::create('pengirimen', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
+            $table->integer('id_barang')->unsigned()->index();
+            $table->foreign('id_barang')->references('id')->on('barangs')->onDelete('cascade');
+            $table->integer('id_penerima')->unsigned()->index();
+            $table->foreign('id_penerima')->references('id')->on('penerimas')->onDelete('cascade');
+            $table->integer('id_pengirim')->unsigned()->index();
+            $table->foreign('id_pengirim')->references('id')->on('pengirims')->onDelete('cascade');
+            $table->string('nama_layanan');
+            $table->string('harga_pengiriman');
             $table->timestamps();
         });
     }

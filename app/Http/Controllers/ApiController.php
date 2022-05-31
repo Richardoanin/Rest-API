@@ -23,6 +23,12 @@ class ApiController extends Controller
         return response()->json($barangs);
     }
 
+    public function showId(Request $request, $id)
+    {
+        $barangs = Barang::find($id);
+        return response()->json($barangs);
+    }
+
     public function update(Request $request, $id) {
         $barangs = Barang::find($id);
         $barangs->nama_barang = $request->input('nama_barang');
